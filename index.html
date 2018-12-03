@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Strap4Watch</title>
+  <style>
+        .watchface {
+          height: 100px;
+          width: 100px;
+        }
+        .strapface {
+          height: 100px;
+          width: 50px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        
+        /* Create three unequal columns that floats next to each other */
+        .column {
+            float: left;
+            padding: 10px;
+        }
+        
+        .left, .right {
+          width: 25%;
+        }
+        
+        .middle {
+          width: 50%;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/jcanvas.js"></script>
+  <script>
+  function loadWatchImage(canvas, watchName) {
+    canvas.drawImage({
+      source: watchName,
+      x: 300, y: 300,
+      width: 200, height: 200
+    });
+  }
+  function loadStrapImageUp(canvas, imgName) {
+    canvas.drawImage({
+      source: imgName,
+      x: 300, y: 110,
+      width: 110, height: 300
+    });
+  }
+  function loadStrapImageDown(canvas, imgName) {
+    canvas.drawImage({
+      source: imgName,
+      x: 300, y: 490,
+      width: 110, height: 300
+    });
+  }
+  $( document ).ready(function() {
+    console.debug("ready");
+    var canvas = $("#maincanvas")
+    
+    loadStrapImageUp(canvas, "strap/sample_strap1_up.png");
+    loadStrapImageDown(canvas, "strap/sample_strap1_down.png");
+    loadWatchImage(canvas, "watch/speedmaster.png");
+
+    $(".watchface").click(function() {
+        loadWatchImage(canvas, this.getAttribute('src'));
+    });
+    $(".strapface").click(function() {
+        loadStrapImageUp(canvas, this.getAttribute('src'));
+        loadStrapImageDown(canvas, this.getAttribute('src').replace("_up", "_down"));
+    });
+  });
+  </script>
+  <div>
+        <div class="row">
+                <div class="column left" style="background-color:#aaa;">
+                  <h2>Watch</h2>
+                    <image src="watch/speedmaster.png" class="watchface"></image>
+                    <image src="watch/sub.png" class="watchface"></image>
+                </div>
+                <div class="column middle">
+                  <canvas id="maincanvas" width="600" height="800"></canvas>
+                </div>
+                <div class="column right" style="background-color:#ccc;">
+                  <h2>Strap</h2>
+                  <image src="strap/sample_strap1_up.png" class="strapface"></image>
+                  <image src="strap/sample_strap2_up.png" class="strapface"></image>
+                  <image src="strap/sample_strap3_up.png" class="strapface"></image>
+                </div>
+              </div>
+
+  </div>
+</body>
+</html>
