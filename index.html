@@ -4,11 +4,34 @@
   <meta charset="utf-8">
   <title>Strap4Watch</title>
   <style>
+        .strapup {
+          position: relative;
+          width: 115px;
+          top: 64px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .strapdown {
+          position: relative;
+          width: 115px;
+          top: -70px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
         .watchface {
+          position: relative;
+          width: 200px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .watchbtn {
           height: 100px;
           width: 100px;
         }
-        .strapface {
+        .strapbtn {
           height: 100px;
           width: 50px;
         }
@@ -41,68 +64,45 @@
 </head>
 <body>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/jcanvas.js"></script>
   <script>
-  var currentWatch = "watch/speedmaster.png";
-  var currentStrap = "strap/white.png";
-  function loadWatchImage(canvas, watchName) {
-    canvas.drawImage({
-      source: watchName,
-      x: 300, y: 340,
-      width: 200, height: 200
-    });
+  function loadWatchImage(watchName) {
+    $(".watchface").attr("src", watchName);
   }
-  function loadStrapImageUp(canvas, imgName) {
-    canvas.drawImage({
-      source: imgName,
-      x: 300, y: 150,
-      width: 110, height: 300
-    });
+  function loadStrapImage(imgName) {
+    $(".strapup").attr("src", imgName);
+    $(".strapdown").attr("src", imgName.replace("_up", "_down"));
   }
-  function loadStrapImageDown(canvas, imgName) {
-    canvas.drawImage({
-      source: imgName,
-      x: 300, y: 530,
-      width: 110, height: 300
-    });
+  function loadStrapImageDown(imgName) {
   }
   $( document ).ready(function() {
     console.debug("ready");
-    var canvas = $("#maincanvas")
-    
-    loadStrapImageUp(canvas, currentStrap);
-    loadStrapImageDown(canvas, currentStrap);
-    loadWatchImage(canvas, currentWatch);
-
-    $(".watchface").click(function() {
-        currentWatch = this.getAttribute('src');
-        loadWatchImage(canvas, this.getAttribute('src'));
+    $(".watchbtn").click(function() {
+        loadWatchImage(this.getAttribute('src'));
     });
-    $(".strapface").click(function() {
-        currentStrap = this.getAttribute('src');
-        loadStrapImageUp(canvas, "strap/white.png");
-        loadStrapImageDown(canvas, "strap/white.png");
-        loadStrapImageUp(canvas, this.getAttribute('src'));
-        loadStrapImageDown(canvas, this.getAttribute('src').replace("_up", "_down"));
-        loadWatchImage(canvas, currentWatch);
+    $(".strapbtn").click(function() {
+        loadStrapImage(this.getAttribute('src'));
     });
   });
   </script>
   <div>
         <div class="row">
-                <div class="column left" style="background-color:#aaa;">
+                <div class="column left" style="background-color:#ddd;">
                   <h2>Watch</h2>
-                    <image src="watch/speedmaster.png" class="watchface"></image>
-                    <image src="watch/sub.png" class="watchface"></image>
+                    <image src="watch/speedmaster.png" class="watchbtn"></image>
+                    <image src="watch/sub.png" class="watchbtn"></image>
                 </div>
                 <div class="column middle">
-                  <canvas id="maincanvas" width="600" height="800"></canvas>
+                  <div>
+                    <div><image src="strap/sample_strap1_up.png" class="strapup"></image></div>
+                    <div><image src="watch/speedmaster.png" class="watchface"></image></div>
+                    <div><image src="strap/sample_strap1_down.png" class="strapdown"></image></div>
+                  </div>
                 </div>
-                <div class="column right" style="background-color:#ccc;">
+                <div class="column right" style="background-color:#eee;">
                   <h2>Strap</h2>
-                  <image src="strap/sample_strap1_up.png" class="strapface"></image>
-                  <image src="strap/sample_strap2_up.png" class="strapface"></image>
-                  <image src="strap/sample_strap3_up.png" class="strapface"></image>
+                  <image src="strap/sample_strap1_up.png" class="strapbtn"></image>
+                  <image src="strap/sample_strap2_up.png" class="strapbtn"></image>
+                  <image src="strap/sample_strap3_up.png" class="strapbtn"></image>
                 </div>
               </div>
 
