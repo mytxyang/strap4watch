@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <title>Strap4Watch</title>
   <style>
+        .msgbox {
+          position: absolute;
+          right: 60px;
+          bottom: 60px;
+          color:cadetblue;
+        }
         .strapup {
           position: relative;
           width: 115px;
@@ -69,9 +75,22 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
   function loadWatchImage(watchName) {
+    if (watchName === "watch/autavia.png") {
+      $(".msgbox").text("查理的最爱").attr("href", "https://www.instagram.com/reachlin6464/");
+    } else {
+      $(".msgbox").text("Ⓒ 2018 reachlin.gmail.com").attr("href", "#");
+    }
     $(".watchface").attr("src", watchName);
   }
   function loadStrapImage(imgName) {
+    if (imgName === "strap/jk_green_up.png") {
+      $(".msgbox").text("jk小眼睛的橡胶带").attr("href",
+        "https://market.m.taobao.com/app/idleFish-F2e/widle-taobao-rax/page-detail?wh_weex=true&wx_navbar_transparent=true&id=573957765347&ut_sk=1.Wd4cLZ72hm8DACUSKz8uRm6d_12431167_1543906817975.Copy.detail.573957765347.44523702&forceFlush=1");
+    } else if (imgName === "strap/ugwc_up.png") {
+      $(".msgbox").text("A tribute to TGV").attr("href", "https://www.theurbangentry.com/");
+    } else {
+      $(".msgbox").text("Ⓒ 2018 reachlin.gmail.com").attr("href", "#");
+    }
     $(".strapup").attr("src", imgName);
     $(".strapdown").attr("src", imgName.replace("_up", "_down"));
   }
@@ -90,7 +109,7 @@
   <div>
         <div class="row">
                 <div class="column left" style="background-color:#ddd;">
-                  <h2>Watch</h2>
+                  <h2>表 Watch</h2>
                     <image src="watch/speedmaster.png" class="watchbtn"></image>
                     <image src="watch/explorer.png" class="watchbtn"></image>
                     <image src="watch/sub.png" class="watchbtn"></image>
@@ -106,12 +125,13 @@
                   </div>
                 </div>
                 <div class="column right" style="background-color:#eee;">
-                  <h2>Strap</h2>
+                  <h2>带 Strap</h2>
                   <image src="strap/sample_strap1_up.png" class="strapbtn"></image>
                   <image src="strap/sample_strap2_up.png" class="strapbtn"></image>
                   <image src="strap/sample_strap3_up.png" class="strapbtn"></image>
                   <image src="strap/jk_green_up.png" class="strapbtn"></image>
                   <image src="strap/ugwc_up.png" class="strapbtn"></image>
+                  <a class="msgbox" href="#">Ⓒ 2018 reachlin.gmail.com</a>
                 </div>
               </div>
 
