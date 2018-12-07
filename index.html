@@ -8,90 +8,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-  <style>
-        .msgbox {
-          position: absolute;
-          right: 60px;
-          bottom: 60px;
-          color:cadetblue;
-        }
-        .strapup {
-          position: relative;
-          width: 115px;
-          top: 64px;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          z-index: 1;
-        }
-        .strapdown {
-          position: relative;
-          width: 115px;
-          top: -70px;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          z-index: 1;
-        }
-        .watchface {
-          position: relative;
-          width: 200px;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          z-index: 2;
-        }
-        .watchbtn:hover {
-          border: 2px solid #fff;
-        }
-        .strapbtn:hover {
-          border: 2px solid #fff;
-        }
-        .watchbtn {
-          height: 80px;
-          width: 80px;
-        }
-        .strapbtn {
-          height: 100px;
-          width: 50px;
-        }
-    </style>
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js"></script>
 </head>
 <body>
-  <script>
-  function loadWatchImage(watchName) {
-    if (watchName === "watch/autavia.png") {
-      $(".msgbox").text("查理的最爱").attr("href", "https://www.instagram.com/reachlin6464/");
-    } else {
-      $(".msgbox").text("Ⓒ 2018 reachlin@gmail.com").attr("href", "#");
-    }
-    $(".watchface").attr("src", watchName);
-  }
-  function loadStrapImage(imgName) {
-    if (imgName === "strap/jk_green_up.png") {
-      $(".msgbox").text("〔1号胶带〕小眼睛JK TROPIC 表带，邮费顺丰到付").attr("href",
-        "https://weidian.com/item.html?itemID=2568999673&wfr=c&ifr=itemdetail");
-    } else if (imgName === "strap/ugwc_up.png") {
-      $(".msgbox").text("A tribute to TGV").attr("href", "https://www.theurbangentry.com/");
-    } else {
-      $(".msgbox").text("Ⓒ 2018 reachlin@gmail.com").attr("href", "#");
-    }
-    $(".strapup").attr("src", imgName);
-    $(".strapdown").attr("src", imgName.replace("_up", "_down"));
-  }
-  function loadStrapImageDown(imgName) {
-  }
-  $( document ).ready(function() {
-    console.debug("ready");
-    $(".watchbtn").click(function() {
-        loadWatchImage(this.getAttribute('src'));
-    });
-    $(".strapbtn").click(function() {
-        loadStrapImage(this.getAttribute('src'));
-    });
-  });
-  </script>
   <div class="container-fluid">
     <div class="row">
                 <div class="col-sm-4" style="background-color:#ddd;">
@@ -115,7 +35,7 @@
                     <image src="watch/sna411.png" class="watchbtn"></image>
                     <image src="watch/gsgmt.png" class="watchbtn"></image>
                     <image src="watch/sbdx021.png" class="watchbtn"></image>                    
-                    
+
                     <image src="watch/nomos.png" class="watchbtn"></image>
                     <image src="watch/iwc.png" class="watchbtn"></image>
                     
