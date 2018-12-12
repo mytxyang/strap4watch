@@ -1,17 +1,17 @@
 function loadWatchImage(watchName) {
     if (watchName === "watch/autavia.png") {
-        $(".msgbox").text("查理的最爱").attr("href", "https://www.instagram.com/reachlin6464/");
+        $("#msgbox").text("查理的最爱").attr("href", "https://www.instagram.com/reachlin6464/");
     } else {
-        $(".msgbox").text("Ⓒ 2018 reachlin@gmail.com").attr("href", "#");
+        $("#msgbox").text("Ⓒ 2018 reachlin@gmail.com").attr("href", "#");
     }
     $(".watchface").attr("src", watchName);
 }
 
 function loadStrapImage(imgName) {
-    $(".msgbox").text("Ⓒ 2018 reachlin@gmail.com").attr("href", "#");
+    $("#msgbox").text("Ⓒ 2018 reachlin@gmail.com").attr("href", "#");
     $.each(straps, function(index, value) {
         if (imgName === value.file) {
-            $(".msgbox").text(value.msg).attr("href", value.url);
+            $("#msgbox").text(value.msg).attr("href", value.url);
         }
     });
     $(".strapup").attr("src", imgName);
