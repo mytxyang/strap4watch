@@ -1,9 +1,9 @@
 .carousel-indicators {
-    top: 320px;
+    top: 90%;
 }
 .carousel-control-prev,
 .carousel-control-next{
-    top: 330px;
+    top: 95%;
 }
 .msgbox {
     margin: 3em;
