@@ -54,9 +54,9 @@ $( document ).ready(function() {
                 var i = Math.floor((Math.random() * straps.length));
                 var j = Math.floor((Math.random() * watches.length));
                 $(".watchface").attr("src", "watch/"+watches[j].trim());
-                $(".strapup").attr("src", straps[i].file).delay(1000).fadeIn(300);
-                $(".strapdown").attr("src", straps[i].file.replace("_up", "_down")).delay(1000).fadeIn(300);
-            },  3000); // 60 * 1000 milsec
+                $(".strapup").attr("src", straps[i].file).delay(4000).fadeIn(300);
+                $(".strapdown").attr("src", straps[i].file.replace("_up", "_down")).delay(4000).fadeIn(300);
+            },  6000); // 60 * 1000 milsec
         }
     });
 });
